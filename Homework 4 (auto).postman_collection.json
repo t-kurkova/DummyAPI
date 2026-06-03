@@ -1,0 +1,509 @@
+{
+  "info": {
+    "_postman_id": "b88c3a40-7c7e-4faf-86d4-379109eebacc",
+    "name": "Homework 4 (auto)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53113142"
+  },
+  "item": [
+    {
+      "name": "Get Post List",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200 OK\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name is OK\", function () {\r",
+              "    pm.response.to.have.status(\"OK\");\r",
+              "}); \r",
+              "\r",
+              "pm.test(\"Response time is less than 600ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response is list of posts\", function () {\r",
+              "\r",
+              "var jsonData = pm.response.json();\r",
+              "\r",
+              "pm.expect (jsonData).to.have.property(\"data\");\r",
+              "pm.expect (jsonData.data).to.be.an(\"array\");\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "apikey",
+          "apikey": [
+            {
+              "key": "value",
+              "value": "{{app-id}}",
+              "type": "string"
+            },
+            {
+              "key": "key",
+              "value": "app-id",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{host}}/post",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "post"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Post",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200 OK\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name is OK\", function () {\r",
+              "    pm.response.to.have.status(\"OK\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 600ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+              "});\r",
+              "\r",
+              "var jsonData = pm.response.json();\r",
+              "\r",
+              "pm.test(\"Check id is non-empty string\", function () {\r",
+              "    pm.expect(jsonData.id).to.be.a(\"string\").and.not.be.empty;\r",
+              "});\r",
+              "\r",
+              "pm.collectionVariables.set(\"postId\", jsonData.id);\r",
+              "\r",
+              "pm.test(\"Check tags\", function () {\r",
+              "    pm.expect(jsonData.tags).to.be.an(\"array\");\r",
+              "    pm.expect(jsonData.tags[0]).to.eql(\"true\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Check text\", function () {\r",
+              "    pm.expect(jsonData.text).to.eql(\"New post about post\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Check image\", function () {\r",
+              "    pm.expect(jsonData.image).to.eql(\"http://www.photo.com/image.jpg\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Check likes is number\", function () {\r",
+              "    pm.expect(jsonData.likes).to.be.a(\"number\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Check owner is object with id\", function () {\r",
+              "    pm.expect(jsonData.owner).to.be.an(\"object\");\r",
+              "    pm.expect(jsonData.owner).to.have.property(\"id\").and.to.be.a(\"string\").and.not.be.empty;\r",
+              "    pm.expect(jsonData.owner).to.have.property(\"title\");\r",
+              "    pm.expect(jsonData.owner).to.have.property(\"firstName\");\r",
+              "    pm.expect(jsonData.owner).to.have.property(\"lastName\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Check owner fields\", function () {\r",
+              "    pm.expect(jsonData.owner.title).to.eql(\"mr\");\r",
+              "    pm.expect(jsonData.owner.firstName).to.eql(\"Jack\");\r",
+              "    pm.expect(jsonData.owner.lastName).to.eql(\"Norton\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Check publishDate is string\", function () {\r",
+              "    pm.expect(jsonData.publishDate).to.be.a(\"string\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Check updatedDate is string\", function () {\r",
+              "    pm.expect(jsonData.publishDate).to.be.a(\"string\");\r",
+              "});\r",
+              "\r",
+              "\r",
+              "\r",
+              "\r",
+              "\r",
+              "\r",
+              "\r",
+              "\r",
+              "\r",
+              "\r",
+              "\r",
+              "\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "apikey",
+          "apikey": [
+            {
+              "key": "value",
+              "value": "{{app-id}}",
+              "type": "string"
+            },
+            {
+              "key": "key",
+              "value": "app-id",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"text\": \"New post about post\",\r\n  \"image\": \"http://www.photo.com/image.jpg\",\r\n  \"likes\": 0,\r\n  \"tags\": [\"true\"],\r\n  \"owner\": \"6990a6dbea6226bbe2891297\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{host}}/post/create",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "post",
+            "create"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Post By ID",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200 OK\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name is OK\", function () {\r",
+              "    pm.response.to.have.status(\"OK\");\r",
+              "}); \r",
+              "\r",
+              "pm.test(\"Response time is less than 600ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response has expected post fields\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData).to.have.property(\"id\");\r",
+              "    pm.expect(jsonData).to.have.property(\"text\");\r",
+              "    pm.expect(jsonData).to.have.property(\"owner\");\r",
+              "    pm.expect(jsonData).to.have.property(\"tags\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"id matches path parameter\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    var expectedId = pm.request.url.getPath().split('/').pop();\r",
+              "    pm.expect(jsonData.id).to.eql(expectedId);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "apikey",
+          "apikey": [
+            {
+              "key": "value",
+              "value": "{{app-id}}",
+              "type": "string"
+            },
+            {
+              "key": "key",
+              "value": "app-id",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{host}}/post/6a0f1c75e831b101d5bfddc3",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "post",
+            "6a0f1c75e831b101d5bfddc3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Post",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200 OK\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name is OK\", function () {\r",
+              "    pm.response.to.have.status(\"OK\");\r",
+              "}); \r",
+              "\r",
+              "pm.test(\"Response time is less than 600ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+              "});\r",
+              "\r",
+              "var jsonData = pm.response.json();\r",
+              "\r",
+              "pm.test(\"Check id is non-empty string\", function () {\r",
+              "    pm.expect(jsonData.id).to.be.a (\"string\").and.not.be.empty;\r",
+              "});\r",
+              "\r",
+              "pm.collectionVariables.set(\"postId\", jsonData.id);\r",
+              "\r",
+              "pm.test(\"Check tags\", function () {\r",
+              "    pm.expect(jsonData.tags).to.be.an(\"array\");\r",
+              "    pm.expect(jsonData.tags[0]).to.eql(\"true\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Check text\", function () {\r",
+              "    pm.expect(jsonData.text).to.eql(\"New post\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Check image\", function () {\r",
+              "    pm.expect(jsonData.image).to.eql(\"http://www.photo.com/image.jpg\");\r",
+              "})\r",
+              "\r",
+              "pm.test(\"Check owner is object with id\", function () {\r",
+              "    pm.expect(jsonData.owner).to.be.an(\"object\");\r",
+              "    pm.expect(jsonData.owner).to.have.property(\"id\").and.to.be.a(\"string\").and.not.be.empty;\r",
+              "    pm.expect(jsonData.owner).to.have.property(\"title\");\r",
+              "    pm.expect(jsonData.owner).to.have.property(\"firstName\");\r",
+              "    pm.expect(jsonData.owner).to.have.property(\"lastName\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Check owner fields\", function () {\r",
+              "    pm.expect(jsonData.owner.title).to.eql(\"mr\");\r",
+              "    pm.expect(jsonData.owner.firstName).to.eql(\"Jack\");\r",
+              "    pm.expect(jsonData.owner.lastName).to.eql(\"Norton\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Check body publishDate is string\", function () {\r",
+              "    pm.expect(jsonData.publishDate).to.be.a(\"string\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Check body upDate is string\", function () {\r",
+              "    pm.expect(jsonData.updatedDate).to.be.a(\"string\");\r",
+              "});\r",
+              "\r",
+              "\r",
+              "\r",
+              "\r",
+              "\r",
+              "\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "apikey",
+          "apikey": [
+            {
+              "key": "value",
+              "value": "{{app-id}}",
+              "type": "string"
+            },
+            {
+              "key": "key",
+              "value": "app-id",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"text\": \"New post\",\r\n  \"image\": \"http://www.photo.com/image.jpg\",\r\n  \"likes\": 0,\r\n  \"tags\": [\"true\"],\r\n  \"publishDate\": \"\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{host}}/post/6a182e5e75cf11810c7c12b0",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "post",
+            "6a182e5e75cf11810c7c12b0"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Post",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200 OK\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name is OK\", function () {\r",
+              "    pm.response.to.have.status(\"OK\");\r",
+              "}); \r",
+              "\r",
+              "pm.test(\"Response time is less than 500ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+              "});\r",
+              "\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "apikey",
+          "apikey": [
+            {
+              "key": "value",
+              "value": "{{app-id}}",
+              "type": "string"
+            },
+            {
+              "key": "key",
+              "value": "app-id",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{host}}/post/{{postId}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "post",
+            "{{postId}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "apikey"
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "userId",
+      "value": ""
+    },
+    {
+      "key": "UserId",
+      "value": ""
+    },
+    {
+      "key": "postId",
+      "value": ""
+    },
+    {
+      "key": "app-id",
+      "value": ""
+    }
+  ]
+}
