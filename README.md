@@ -3,6 +3,13 @@
 Здесь представлено описание тестирования проекта DummyAPI
 
 ## Оглавление
+- [Описание проекта](#описание-проекта)
+- [POST](#post)
+  - [GET /post (Get List)](#get-post-get-list)
+  - [POST /post/create (Create Post)](#post-postcreate-create-post)
+  - [PUT /post/:id (Update Post)](#put-postid-update-post)
+- [Майнд-карта](#майнд-карта)
+
 
 ## Описание проекта
 
