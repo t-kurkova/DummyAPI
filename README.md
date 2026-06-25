@@ -74,6 +74,8 @@ owner: object(User Preview)
 }
 ```
 
+___
 ## Майнд-карта 
+Данная МК представляет собой набор тестов для тестирования объекта **POST**. Подробные проверки расписаны для **Get List**, **Create Post**, **Update Post**
 
-
+!{Alt-текст}(https://drive.google.com/file/d/1VMEf9xjS3mKaxKILYYUro2zESY6N4kbn/view?usp=sharing)
