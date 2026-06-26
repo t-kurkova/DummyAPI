@@ -14,10 +14,6 @@
   - [Коллекция запросов Post](#коллекция-запросов-post)
   - [Окружение DummyAPI](#окружение-dummyapi)
 - [Автотесты и окружение](#автотесты-и-окружение)
-  - [Homework 4 (auto).postman_collection.json](#homework-4-autopostmancollectionjson)
-  - [Homework 4.postman_environment.json](#homework-4postmanenvironmentjson)
-
-
 
 
 ## Описание проекта   
