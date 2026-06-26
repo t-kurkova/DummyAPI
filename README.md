@@ -91,4 +91,5 @@ __
 ## Коллекции Postman
 
 ## Автотесты
+![Alt-текст](Homework 4 (auto).postman_collection.json)
 
