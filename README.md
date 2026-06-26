@@ -10,10 +10,14 @@
   - [PUT /post/:id (Update Post)](#put-postid-update-post)
 - [Майнд-карта](#майнд-карта)
 - [Автотесты](#автотесты)
-- [Коллекции и окружение](#коллекции-и-окружение)
-  - [Объект Post](#объект-post)
-  - [Post.postman_collection.json](#postpostmancollectionjson)
-  - [DummyAPI.postman_environment.json](#dummyapipostmanenvironmentjson)
+- [Коллекции Postman](#коллекции-postman)
+  - [Коллекция запросов Post](#коллекция-запросов-post)
+  - [Окружение DummyAPI](#окружение-dummyapi)
+- [Автотесты и окружение](#автотесты-и-окружение)
+  - [Homework 4 (auto).postman_collection.json](#homework-4-autopostmancollectionjson)
+  - [Homework 4.postman_environment.json](#homework-4postmanenvironmentjson)
+
+
 
 
 ## Описание проекта   
@@ -94,6 +98,7 @@ ___
 
 ___
 ## Коллекции Postman
+
 ### Коллекция запросов Post
 [Post.postman_collection.json](./Post.postman_collection.json)
 
@@ -101,6 +106,7 @@ ___
 [DummyAPI.postman_environment.json](./DummyAPI.postman_environment.json)
 
 ___
-## Автотесты и окружение 
+## Автотесты и окружение
+
 - [Homework 4 (auto).postman_collection.json](./Homework%204%20(auto).postman_collection.json)
 - [Homework 4.postman_environment.json](./Homework%204.postman_environment.json)
