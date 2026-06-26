@@ -9,6 +9,7 @@
   - [POST /post/create (Create Post)](#post-postcreate-create-post)
   - [PUT /post/:id (Update Post)](#put-postid-update-post)
 - [Майнд-карта](#майнд-карта)
+- [Автотесты](#автотесты)
 
 
 ## Описание проекта   
@@ -91,5 +92,4 @@ __
 ## Коллекции Postman
 
 ## Автотесты
-![Alt-текст](Homework%204%20(auto).postman_collection.json)
-
+[Homework 4 (auto).postman_collection.json](./Homework%204%20(auto).postman_collection.json)
