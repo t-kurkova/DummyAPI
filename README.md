@@ -91,5 +91,5 @@ __
 ## Коллекции Postman
 
 ## Автотесты
-![Alt-текст](Homework%204%20(auto).postman_collection.jso)
+![Alt-текст](Homework%204%20(auto).postman_collection.json)
 
