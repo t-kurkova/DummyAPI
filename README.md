@@ -92,4 +92,5 @@ __
 ## Коллекции Postman
 
 ## Автотесты и окружение 
-[Homework 4 (auto).postman_collection.json](./Homework%204%20(auto).postman_collection.json)
+- [Homework 4 (auto).postman_collection.json](./Homework%204%20(auto).postman_collection.json)
+- [Homework 4.postman_environment.json](./Homework%204.postman_environment.json)
